@@ -1,0 +1,791 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>MJP Badminton Court | Kondhwa Khurd, Pune</title>
+<!-- Tailwind CSS v3 CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Custom Config -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              mint: '#00e599',
+              mintDark: '#00c784',
+              darkBg: '#051812',
+              cardDark: '#0b261e',
+              borderDark: '#133a2e',
+              deepFooter: '#04100c',
+            }
+          }
+        }
+      }
+    };
+  </script>
+<!-- Custom Global & Utility Styles -->
+<style data-purpose="layout-typography">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      background-color: #051812;
+      color: #1a202c;
+    }
+    /* Hide scrollbar for horizontal sub-navs or grids if needed */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="w-full bg-[#051812] selection:bg-[#00e599] selection:text-black">
+<!-- BEGIN: MobileHeader -->
+<header class="sticky top-0 z-50 bg-[#051812]/95 backdrop-blur-md border-b border-brand-borderDark/60 px-4 py-3">
+<div class="max-w-md mx-auto flex items-center justify-between">
+<!-- Brand Logo -->
+<a aria-label="MJP Badminton Court Home" class="flex items-center gap-2" href="#">
+<div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-brand-mint/30 flex items-center justify-center text-brand-mint">
+<!-- Shuttlecock SVG Icon -->
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<path d="M14.5 2.5a2.5 2.5 0 0 0-5 0c0 .48.14.93.38 1.31L4.35 9.34a1 1 0 0 0 .15 1.41l2.83 2.83a1 1 0 0 0 1.41-.15l5.53-5.53c.38.24.83.38 1.31.38a2.5 2.5 0 0 0 0-5zM8.5 15l-4 4 1.5 1.5 4-4L8.5 15zm4 4l-4 4 1.5 1.5 4-4-1.5-1.5zm6.5-6.5l-4-4-1.5 1.5 4 4 1.5-1.5z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-extrabold text-white text-base tracking-tight leading-none">MJP</span>
+<span class="text-[9px] font-semibold text-gray-400 tracking-wider uppercase mt-0.5">Badminton Court</span>
+</div>
+</a>
+<!-- Quick Action: Book Slot Button & Mobile Menu Toggle -->
+<div class="flex items-center gap-2">
+<a class="bg-brand-mint hover:bg-brand-mintDark text-gray-950 font-bold text-xs px-3.5 py-2 rounded-full transition-all duration-200 shadow-sm flex items-center gap-1" href="#book-court">
+<span class="">Book a Slot</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</a>
+<button aria-label="Open Navigation Menu" class="p-2 text-gray-300 hover:text-white rounded-lg focus:outline-none" id="mobileMenuBtn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Mobile Slide-down Menu -->
+<nav class="hidden pt-3 pb-2 border-t border-brand-borderDark/40 mt-3 flex-col gap-2.5 text-sm font-medium text-gray-300" id="mobileNavDropdown">
+<a class="px-2 py-1.5 hover:text-brand-mint transition-colors" href="#about">About Court</a>
+<a class="px-2 py-1.5 hover:text-brand-mint transition-colors" href="#facilities">Facilities</a>
+<a class="px-2 py-1.5 hover:text-brand-mint transition-colors" href="#gallery">Gallery</a>
+<a class="px-2 py-1.5 hover:text-brand-mint transition-colors" href="#book-court">Book a Slot</a>
+<a class="px-2 py-1.5 hover:text-brand-mint transition-colors" href="#location">Location &amp; Contact</a>
+<a class="px-2 py-1.5 hover:text-brand-mint transition-colors" href="#faq">FAQ</a>
+</nav>
+</header>
+<!-- END: MobileHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative bg-[#072218] text-white overflow-hidden pt-8 pb-10 px-4" id="home">
+  <!-- Full-Bleed Action Background Image -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <img alt="Badminton match action on wooden court" class="w-full h-full object-cover object-[center_20%] opacity-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPSiRoa1r9yCGfUIB7cUozgOz9UadCu0jqDdiypCJ1jJ7vvXKt9xnJ6zxtutIhHwNOaMZ4dBKJI-Gw-CWB8KZPhKx1UizAUICFvYFc2ILXLWd7LFW-jmXvWphhg_kKBQvXfLOe1cRG-1PSS-H5Urgo4DN31qrUklejSf01ZlRl5hnSgi_W0yFzZR-yq472OpX_XmNARH9AnEyAPvRUkdqGC-ov3AssHyTv3WhLjP1vbhN7x-2t0D6g">
+    <!-- Multi-layered dark emerald gradient overlays -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#04150e]/95 via-[#072218]/70 to-[#072218]"></div>
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-400 via-transparent to-transparent"></div>
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#34d399_1px,transparent_1px)] [background-size:20px_20px]"></div>
+  </div>
+
+  <div class="max-w-md mx-auto relative z-10 flex flex-col items-start">
+    <!-- Location Chip with glowing dot -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-[11px] font-semibold uppercase tracking-wider backdrop-blur-md mb-4 shadow-sm">
+      <span class="w-1.5 h-1.5 rounded-full bg-brand-mint animate-pulse"></span>
+      BADMINTON • KONDHWA KHURD, PUNE
+    </div>
+
+    <!-- Main Heading -->
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.15] text-white mb-2.5">
+      Your next game <br>
+      <span class="text-brand-mint drop-shadow-[0_2px_12px_rgba(0,229,153,0.35)]">starts here.</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-gray-200 text-sm leading-relaxed mb-4 max-w-sm drop-shadow">
+      Two wooden courts. Great rallies. Your local badminton spot.
+    </p>
+
+    <!-- Rating Pill Glassmorphic -->
+    <div class="inline-flex items-center gap-2 mb-6 bg-black/40 backdrop-blur-md border border-emerald-500/30 rounded-full px-3.5 py-1.5 shadow-md">
+      <div class="flex text-amber-400 text-xs tracking-tight">
+        ★★★★★
+      </div>
+      <span class="text-xs font-bold text-white">4.4 / 5</span>
+      <span class="text-gray-300 text-[11px]">• 22 ratings on Playo</span>
+    </div>
+
+    <!-- Action Buttons Stack -->
+    <div class="w-full flex flex-col gap-2.5 mb-6">
+      <!-- Primary CTA button with mint glow -->
+      <a class="w-full py-3.5 bg-brand-mint hover:bg-brand-mintDark text-gray-950 font-extrabold rounded-xl text-center text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 active:scale-[0.99]" href="#book-court">
+        <span class="">Check Available Slots</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+      </a>
+      <!-- Secondary Action Row -->
+      <div class="grid grid-cols-2 gap-2.5 w-full">
+        <a class="py-3 px-3 bg-white/10 hover:bg-white/15 border border-emerald-700/40 text-gray-100 rounded-xl text-xs font-semibold text-center flex items-center justify-center gap-1.5 backdrop-blur-md transition-colors" href="#location">
+          <svg class="w-4 h-4 text-brand-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <span class="">Get Directions</span>
+        </a>
+        <a class="py-3 px-3 bg-white/10 hover:bg-white/15 border border-emerald-700/40 text-gray-100 rounded-xl text-xs font-semibold text-center flex items-center justify-center gap-1.5 backdrop-blur-md transition-colors" href="#gallery">
+          <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-brand-mint flex items-center justify-center shrink-0">
+            <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path></svg>
+          </span>
+          <span class="">Watch the Court</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Professional Court Finish Badge overlay (matching desktop spec chip) -->
+    <div class="w-full bg-[#0b2d22]/90 backdrop-blur-md border border-emerald-700/50 rounded-xl p-3 flex items-center justify-between gap-3 shadow-xl">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-brand-mint flex items-center justify-center shrink-0 font-bold">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.286L13 21l-2.286-6.857L5 12l5.714-2.286L13 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </div>
+        <div>
+          <h4 class="text-[11px] font-bold text-white tracking-wide uppercase">Professional Court Finish</h4>
+          <p class="text-[10px] text-emerald-200/80">Shock-absorbing premium timber flooring</p>
+        </div>
+      </div>
+      <span class="text-[10px] font-bold bg-brand-mint text-gray-950 px-2.5 py-1 rounded-md shrink-0 shadow-sm">2 Courts</span>
+    </div>
+  </div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: StatsStrip -->
+<section class="bg-white border-y border-gray-100 py-6 px-4">
+<div class="max-w-md mx-auto grid grid-cols-2 gap-4">
+<!-- Stat 1 -->
+<div class="flex items-start gap-3 p-2 rounded-lg bg-gray-50/70 border border-gray-100">
+<div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h2 class="text-xs font-bold text-gray-900 leading-tight">2 Wooden Courts</h2>
+<p class="text-[11px] text-gray-500 mt-0.5 leading-snug">Well-maintained wooden courts</p>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="flex items-start gap-3 p-2 rounded-lg bg-gray-50/70 border border-gray-100">
+<div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h2 class="text-xs font-bold text-gray-900 leading-tight">6 AM – 12 AM</h2>
+<p class="text-[11px] text-gray-500 mt-0.5 leading-snug">Daily open hours for bookings</p>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="flex items-start gap-3 p-2 rounded-lg bg-gray-50/70 border border-gray-100">
+<div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h2 class="text-xs font-bold text-gray-900 leading-tight">Viewing Gallery</h2>
+<p class="text-[11px] text-gray-500 mt-0.5 leading-snug">Spacious gallery for friends</p>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="flex items-start gap-3 p-2 rounded-lg bg-gray-50/70 border border-gray-100">
+<div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h2 class="text-xs font-bold text-gray-900 leading-tight">Washrooms</h2>
+<p class="text-[11px] text-gray-500 mt-0.5 leading-snug">Separate shower facilities</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: StatsStrip -->
+<!-- BEGIN: AboutSection -->
+<section class="bg-white py-10 px-4 text-gray-900" id="about">
+<div class="max-w-md mx-auto">
+<span class="text-xs font-bold tracking-wider uppercase text-emerald-600 block mb-1">About Our Court</span>
+<h2 class="text-2xl font-extrabold text-gray-950 mb-3 tracking-tight">MJP Badminton Court</h2>
+<p class="text-gray-600 text-sm leading-relaxed mb-5">
+        MJP Badminton Court, located in Kondhwa Khurd, Pune, is a well-maintained indoor facility with two wooden badminton courts. It's a great place for casual players, regular enthusiasts and groups looking for a quality playing experience.
+      </p>
+<!-- Badges Stack -->
+<div class="flex flex-col gap-2.5 mb-6">
+<div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl border border-gray-100">
+<span class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<div>
+<div class="text-xs font-bold text-gray-900">Convenient Location</div>
+<div class="text-[11px] text-gray-500">Kondhwa Khurd, Pune</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl border border-gray-100">
+<span class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<div>
+<div class="text-xs font-bold text-gray-900">Easy Booking</div>
+<div class="text-[11px] text-gray-500">Online slot booking</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl border border-gray-100">
+<span class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<div>
+<div class="text-xs font-bold text-gray-900">Great Playing Environment</div>
+<div class="text-[11px] text-gray-500">Well-lit indoor courts</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<a class="py-3 px-4 bg-[#051812] hover:bg-emerald-950 text-brand-mint text-xs font-bold rounded-xl text-center transition flex items-center justify-center gap-1.5" href="#book-court">
+<span class="">Book a Slot</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<a class="py-3 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold rounded-xl text-center transition border border-gray-200" href="#facilities">
+          Learn More
+        </a>
+</div>
+<!-- Court Photography Collage -->
+<div class="space-y-2">
+<div class="relative rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+<img alt="Main view of MJP Badminton Court indoor green walls and wooden courts" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYVvur2gZdZEJLL5kcalA8CriboKBMn1hB-24E0B5KRM9wA07m6ynk2E-gAO6wIrVfYEjdH3PP7_LPkRoNwZp1mXNrwXyUjN3wsGh7fQFKfIGypGSPinsfpcwutoW8IMpV-AQOK0Am5_35YqJU2nhpI5gNaQchk-bX9w8fNCc_w0-A6n0laf__IAd0GVoLavdj5rNQ8i9AYasR-swLYZFfRfVszAzp0luG51d5Urzic4lKtWlQ__xo">
+<div class="absolute bottom-2.5 left-2.5 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] shadow-sm">
+<span class="font-bold text-gray-900">Play. Improve. Enjoy.</span>
+<span class="text-gray-500 block text-[10px]">A great place for all levels</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<img alt="Badminton court wooden flooring close-up" class="w-full h-20 object-cover rounded-xl border border-gray-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHTDxyzLP3d8lIYtkflamcPvSBuOJDG33R4vqkQmOC_iqkqyruSTqGBLjCrrduNVoU775h6aPmtLsZc4iJx6rn8WiBVb35c06qB-FAQPdB1zl2oThguy_MAk5OyGOoKgJMpJvwiFx0VfVASanKvASQEbFBe6Wm9s6PUFqRDj1PGGBA2nKjmTT64m37dGdT2rbYNR0FtZXEWOW90cXPvAPz_P01GkhcTqE2Nk32I2_mkeXMmgvBGF2v">
+<img alt="Badminton shuttlecock on court net" class="w-full h-20 object-cover rounded-xl border border-gray-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU4iM60IqYlRoL5XDUpzL3uFksglbyG0CuUAfFPgZz9264gaKZquX8BDal9FvMej9TEKoFVyLkxU83VqZCEbMi58_bpc8pH_EQgzuf-awDX0SEKD28G31ocrWXTscB8VcqiLu_4asXW2QTeldeOVeogY9BCkC6IrqHisH3kk8YlLLEihKu7QVQUrzURtXiyLZJWmUkWwZlRCsCRQszMJphgJbsaCDzdEj1g0L5yfZZCWf9tPmMmp-o">
+<img alt="Shower and washroom facilities at MJP" class="w-full h-20 object-cover rounded-xl border border-gray-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBQgAw_uTS6jupXUfBWOu6J5hgVFVLCg6mliBqVG6a44hgJ99HRA6DPZSc6Bep0z2jCyWWKrGYYsC5jb2gQqYGWDUJyXmov2V29jvp75LvqrwjM2BzM5jwSieqoVwmti-y8_lRBrVCM-58jCocq95oQjJY-kkW15vYMpXTSRGmuc3Dj45JjC9Dkbm1zINUldrBroMpjWAIS-nXtkOYjnrv6VfNm81yW6hpASE1WGrZhECnJevJY70i">
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: FacilitiesSection -->
+<section class="bg-[#051812] text-white py-10 px-4 border-t border-brand-borderDark/50" id="facilities">
+<div class="max-w-md mx-auto">
+<span class="text-xs font-bold tracking-wider uppercase text-emerald-400 block mb-1">Our Facilities</span>
+<h2 class="text-2xl font-extrabold text-white tracking-tight leading-tight mb-2">
+        Everything you need <br>
+        for a <span class="text-brand-mint">great game.</span>
+</h2>
+<p class="text-gray-300 text-xs leading-relaxed mb-5">
+        Well-maintained courts, modern amenities and a comfortable environment to make your playing experience better.
+      </p>
+<!-- Shoe Policy Notice Banner -->
+<div class="bg-gradient-to-r from-[#0b2d22] to-[#0d382b] border border-emerald-500/30 rounded-xl p-3 flex items-center gap-3 mb-6 shadow-sm">
+<div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-brand-mint flex items-center justify-center shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<div class="text-xs font-bold text-white tracking-wide">SHOE POLICY MANDATORY</div>
+<div class="text-[11px] text-emerald-200 font-medium">Non-marking shoes are strictly compulsory on wooden courts.</div>
+</div>
+</div>
+<!-- Facilities Grid (2x2 Mobile Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+<!-- Facility 1: Wooden Courts -->
+<div class="bg-brand-cardDark border border-brand-borderDark rounded-xl p-3.5 flex flex-col justify-between">
+<img alt="Well maintained wooden badminton courts" class="w-full h-32 object-cover rounded-lg mb-3 border border-emerald-900/60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArfsRP6sYz59BWsLiMdOn5Mkduk8lSaUN4TXHMHU-nXvayelsdrpilLy8bQVWiLcqqBYQnzIFcmHixL-WBBIus-YcHOtII6bmEMz-aqq3Q6dZMNJFSyMZsAW8CfIP0Kultcg0tRq0VgPIJq0wl6BXKRmAcRnfKTTucuf9syL5yZmWwO8XKYfYERM4tqIg879Sf0jqhsbBIL1o8tOsoNjoGSOMzq5_5NqKHEiM716GNCJKRFuyrJxNF">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-brand-mint">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<h3 class="font-bold text-sm text-white">Wooden Courts</h3>
+</div>
+<p class="text-[11px] text-gray-300 leading-snug">
+              2 well-maintained wooden courts for a great playing experience.
+            </p>
+</div>
+</div>
+<!-- Facility 2: Viewing Gallery -->
+<div class="bg-brand-cardDark border border-brand-borderDark rounded-xl p-3.5 flex flex-col justify-between">
+<img alt="Viewing gallery for spectators at badminton hall" class="w-full h-32 object-cover rounded-lg mb-3 border border-emerald-900/60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwQ7Fth4m_t3W5qun2WMB23ghGmvccObK1YSGdKMQlWMNl9DCO5hPQq5IBXAjuXKIPbg0Bx4RJrZdhIUQ2HyKznrCSEH6oGX-VCIAeobJpsxAcOL-jDM86UBRBNsg2DEY53WdBYqwaa6tRjmyFp8mAHTtiOABOFUB1sImIxhf1A7JejkZlblfIZGMFpSVp0jUA9Qs2-rqCxLODJkNTTLftwDUPEY5jyKWMhM3gh6ASayuDKbAhxLs5">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-brand-mint">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<h3 class="font-bold text-sm text-white">Viewing Gallery</h3>
+</div>
+<p class="text-[11px] text-gray-300 leading-snug">
+              Spacious gallery to watch your games with friends and family.
+            </p>
+</div>
+</div>
+<!-- Facility 3: Showers -->
+<div class="bg-brand-cardDark border border-brand-borderDark rounded-xl p-3.5 flex flex-col justify-between">
+<img alt="Shower facilities for players" class="w-full h-32 object-cover rounded-lg mb-3 border border-emerald-900/60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuOWU-uYgBgmqjZbhmn-cpO_I8vYmrMocfn6rudmAbDDMUPLQ6WpBiKZqNEOUUb8k-tshUjPaaG4bVAXf9RXgiZVtfpPsZgW8gOgClo96R0eSjajwVOql6mtJeqhvOZXNHQ5JWDaWV2DA3Wg0v8M9oB9SO1PFv_b45HF--wWGkVkKS8gAGBegRwbwI6A8fBiS-MfQqPtcKJxyFv1k8-8iF2d0FLYC6r4Th_8Y0keF7uukpEPXyBrEW">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-brand-mint">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<h3 class="font-bold text-sm text-white">Showers</h3>
+</div>
+<p class="text-[11px] text-gray-300 leading-snug">
+              Shower facilities available for players to refresh after rallies.
+            </p>
+</div>
+</div>
+<!-- Facility 4: Separate Washrooms -->
+<div class="bg-brand-cardDark border border-brand-borderDark rounded-xl p-3.5 flex flex-col justify-between">
+<img alt="Clean washroom facilities" class="w-full h-32 object-cover rounded-lg mb-3 border border-emerald-900/60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdoyq160i0X_YCbHbRSIoUXJhC2Q9CCcSmIFBZQlj06ioVuYthLKAGb6EdijEEpGkA1c6czciWejosi3rp-dgHbFDADJw2dLEU5mDkNSp-0cJEltz81stDAhWdm48kCnHnfEYRKhz775QCRf-xgjXj9c2LUdCjH7lZ7cyR5mAPub7IZ6muRenS2l5ieP5XU39phuGG4F9Fy5yIUHlC4V2ysr0WdmfI8kRTJ8dptDmbISx_mNHydvLY">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-brand-mint">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<h3 class="font-bold text-sm text-white">Separate Washrooms</h3>
+</div>
+<p class="text-[11px] text-gray-300 leading-snug">
+              Clean and separate washrooms for a comfortable experience.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: FacilitiesSection -->
+<!-- BEGIN: GallerySection -->
+<section class="bg-white py-10 px-4 text-gray-900" id="gallery">
+<div class="max-w-md mx-auto">
+<div class="flex items-end justify-between mb-4">
+<div>
+<span class="text-xs font-bold tracking-wider uppercase text-emerald-600 block mb-1">Gallery</span>
+<h2 class="text-2xl font-extrabold text-gray-950 tracking-tight leading-none">Moments from our court</h2>
+</div>
+<a class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 border border-emerald-200 bg-emerald-50 px-2.5 py-1 rounded-full" href="#gallery">
+<span class="">View All</span>
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+<!-- Gallery Grid Structure -->
+<div class="grid grid-cols-2 gap-2">
+<!-- Big Featured Shot -->
+<div class="col-span-2 relative rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+<img alt="MJP Badminton Court main illuminated wooden court view" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAye5_10BFYRpifFWahOf4yMdCxHvLav06ypU7B2RjClqE_VPYQhGXb2iko0HIinQa-nCClmvzbMBTz0mlE6hguZtjQ-1CZjfTjVAJngBcbnWAKqAL567ralWEYuUVFHGsMydJoFdjrltUM1L7X6k0fb-MOId3MDwxhOFnWURfzX9j8sJjl3I-vLM1rZnMp0dCJTWxfvBfruzaRCa6sz27-sFD7_B_1UECBtdCMK6WVMGTA6pjOOLUo">
+<div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] text-white font-medium">
+            Court 1 &amp; Court 2 Arena
+          </div>
+</div>
+<!-- 2 Side-by-side Images -->
+<div class="rounded-xl overflow-hidden border border-gray-200">
+<img alt="High angle view of wooden court lines" class="w-full h-28 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOEM3YovLhSBSawVy2ZSIHezY38oKSgyYHyO4qifN085Z96TtuFf1DfieyRG8DDEWSKISB2EclvdgmzLB-0HDChfk2UrOFAnwdWRkm13TRlUsydVd0LMA72KCYNJZRoHdin_s9HzAeLBILGLqSOOIJ6PlsY-GHn0Avtuf1GywF80NGPoTUvCFXuACMcrq4u4RPAE320TCTxn4TpDXRpzCOsyuzYDgG6X10mEWw9EA7PW7t5JC94khV">
+</div>
+<div class="rounded-xl overflow-hidden border border-gray-200">
+<img alt="Spectator seating in gallery" class="w-full h-28 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzxLCVQWl4BrYSyfcvvBjPBKEFANVmGQVAktpj1vHuBjUca9PUsRv_kgFQTH5h5g5SPROMhvnYUw3pUmhtAJPOJO6chNOCGlSOYxDOCNfx2LpFBtdWhfdwRXonrRo2EX_3mL2cgg843AgXKSasT3oBPo2HG_ZcAhf5In5tPzDFSidMHFsqMQzkwsEA_zFJrKu9okvYPfe6Mgwh4K-9fI8CIZuGoalNdwZbxWGq0IBLmhh7tGXMmcjN">
+</div>
+<!-- 2 Lower Images -->
+<div class="rounded-xl overflow-hidden border border-gray-200">
+<img alt="Clean locker room and showers" class="w-full h-28 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuwHM93EzIu2hGxaugr7MvSdlBwiiLr7oToMtmnZE-3QKNNQRCrj2hhRHGBW6led0Z16Q4FPasyJ_WQf1vRDru3_ECNJAUq39xmcEgmp9N_12vbLpPfNyAT1ADhOBuAMJ9xunSJThPlLy5CkZnckLCHa6FRDcG0fmCdy72NlH9v05br__mjmZCXXXosj9rYEgAlQPvAkE9ii4SVvz19y0skox_XWsGn-1GiAFfXEmKGkxJYJMydTKg">
+</div>
+<div class="rounded-xl overflow-hidden border border-gray-200">
+<img alt="Shuttlecock resting at net tape" class="w-full h-28 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8qxX717qMm8Doix27RRW0qku3ZU0bhIzxybXV_AUzyiu5hsRsy2-Zgv3dgPz-txUjnWo5uw4oq4nldXkBeuhRCWS_p8nqgQUZGnbuQ7bflPLrEVLMLnKKJspCzZ2A291mlCntDgMP13sIsqrhoERiJ5X5gx6L2dCbPrIpXryIQtnxYpbQzTcg3M_8dpHc4z7-HuNH7zwpSqqA7GyuKjrxDblHadTSgdlBu2tOncBucXZ1GWlVy8sz">
+</div>
+</div>
+</div>
+</section>
+<!-- END: GallerySection -->
+<!-- BEGIN: BookingSection -->
+<section class="bg-[#051812] text-white py-10 px-4 border-t border-brand-borderDark/60" id="book-court">
+<div class="max-w-md mx-auto">
+<span class="text-xs font-bold tracking-wider uppercase text-brand-mint block mb-1">Play Your Way</span>
+<h2 class="text-2xl font-extrabold text-white tracking-tight mb-1">Book a Court</h2>
+<p class="text-xs text-gray-300 mb-5 leading-relaxed">
+        Check available slots and book your game in just a few clicks.
+      </p>
+<!-- Booking Card Widget -->
+<div class="bg-brand-cardDark border border-brand-borderDark rounded-2xl p-4 shadow-xl">
+<!-- Date Selector Input -->
+<div class="mb-4">
+<label class="block text-[11px] font-bold text-gray-300 uppercase tracking-wider mb-1.5" for="booking-date">
+            Select Date
+          </label>
+<div class="relative">
+<input class="w-full bg-[#072018] border border-emerald-900/80 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white focus:outline-none focus:border-brand-mint" id="booking-date" readonly="" type="text" value="Thu, 16 Oct 2025">
+<div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-brand-mint">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+<!-- Available Slot Pills (3 columns for mobile grid) -->
+<div class="mb-5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-bold text-gray-300 uppercase tracking-wider">Available Slots</span>
+<span class="text-[10px] text-brand-mint font-semibold">1 Slot Selected</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 text-center text-xs">
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">6:00 AM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">7:00 AM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">8:00 AM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">9:00 AM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">10:00 AM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">11:00 AM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">12:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">1:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">2:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">3:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">4:00 PM</button>
+<!-- Highlighted/Selected Slot -->
+<button class="py-2 px-1 bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold rounded-lg shadow-md ring-2 ring-brand-mint" type="button">5:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">6:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">7:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">8:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">9:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">10:00 PM</button>
+<button class="py-2 px-1 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg transition border border-gray-200" type="button">11:00 PM</button>
+</div>
+</div>
+<!-- Banner in Booking Card -->
+<div class="relative rounded-xl overflow-hidden mb-4 border border-emerald-900/60">
+<img alt="Badminton racket and shuttlecock with court background" class="w-full h-24 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP2ji8R4fUEnk_phJyWG50EkTtQ7TDWubeV1C5Zkmt0_wGcSBtuRUkUIvfYt9nCFyu8hrm-tGAX1Fw1cbKTRQiIwROLzZm6qlOCQyLXaTJ3FXiUaT1QDaHI8raD76FSvor5dgn_xEX6tCF5GDYc4fZnwspj-ziWmwoz-fUa7AQa51SAzslY3h4dbQdlETKwI9swGqUrWI-cpsOCGwak9ISGycVPtNoRZNpxgxZJ0MBhq5NS9lKSIBz">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center p-2">
+<div class="bg-white/95 rounded-lg px-3 py-1.5 flex items-center gap-2 shadow-sm">
+<svg class="w-4 h-4 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-[11px] font-bold text-gray-900">Non-marking shoes are compulsory</span>
+</div>
+</div>
+</div>
+<!-- Primary Booking CTA -->
+<button class="w-full py-3.5 bg-brand-mint hover:bg-brand-mintDark text-gray-950 font-extrabold rounded-xl text-center text-sm transition shadow-lg flex items-center justify-center gap-2" type="button">
+<span class="">Book Selected Slot</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</button>
+</div>
+</div>
+</section>
+<!-- END: BookingSection -->
+<!-- BEGIN: LocationSection -->
+<section class="bg-white py-10 px-4 text-gray-900" id="location">
+<div class="max-w-md mx-auto">
+<span class="text-xs font-bold tracking-wider uppercase text-emerald-600 block mb-1">Find Us Here</span>
+<h2 class="text-2xl font-extrabold text-gray-950 tracking-tight mb-4">Location &amp; Contact</h2>
+<!-- Venue Address Box -->
+<div class="flex items-start gap-3 p-3.5 bg-gray-50 border border-gray-200 rounded-xl mb-4">
+<div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0 mt-0.5">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="text-xs font-bold text-gray-950">Mahatma Jyotiba Phule Badminton Hall</h3>
+<p class="text-[11px] text-gray-600 leading-relaxed mt-0.5">
+            Late Dattaji Gavhane Sports Arena, near Brahma Avenue Society, Kondhwa Khurd, Pune 411048
+          </p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-2.5 mb-5">
+<a class="py-2.5 px-3 bg-[#051812] hover:bg-emerald-950 text-white rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5 transition" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<svg class="w-3.5 h-3.5 text-brand-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="">Get Directions</span>
+</a>
+<button class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-800 rounded-xl text-xs font-semibold text-center flex items-center justify-center gap-1.5 transition" id="copyAddressBtn" type="button">
+<svg class="w-3.5 h-3.5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span id="copyBtnText" class="">Copy Address</span>
+</button>
+</div>
+<!-- Styled Map Card Preview -->
+<div class="relative rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-emerald-50">
+<!-- Stylized Map Graphic / Placeholder -->
+<div class="h-44 w-full bg-[#e8f3ee] relative flex items-center justify-center overflow-hidden">
+<!-- Subtle Grid Lines resembling city streets -->
+<svg class="absolute inset-0 w-full h-full stroke-emerald-200/80" fill="none">
+<path d="M-20 30 Q 150 70 420 30" stroke-width="6"></path>
+<path d="M50 -20 Q 90 120 70 240" stroke-width="4"></path>
+<path d="M220 -20 Q 200 100 240 240" stroke-width="5"></path>
+<path d="M-20 120 Q 200 130 420 160" stroke-width="4"></path>
+<path d="M120 40 L 320 180" stroke-width="3"></path>
+</svg>
+<!-- Pin at Center -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="bg-white px-3 py-1.5 rounded-xl shadow-md border border-gray-200 flex items-center gap-2 mb-1">
+<span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+<span class="text-xs font-bold text-gray-900 leading-none">MJP Badminton Court</span>
+</div>
+<div class="w-3.5 h-3.5 bg-red-500 rotate-45 -mt-2"></div>
+<span class="text-[10px] text-gray-500 font-semibold bg-white/80 px-2 rounded-full mt-1">Kondhwa Khurd, Pune</span>
+</div>
+</div>
+<div class="p-2.5 bg-white border-t border-gray-200 flex items-center justify-end">
+<a class="text-[11px] font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<span class="">View in Google Maps</span>
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: LocationSection -->
+<!-- BEGIN: CommunityReviewsSection -->
+<section class="bg-[#051812] text-white py-10 px-4 border-t border-brand-borderDark/60">
+<div class="max-w-md mx-auto">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs font-bold tracking-wider uppercase text-brand-mint">What Players Say</span>
+<div class="flex items-center gap-1.5 text-xs text-amber-400">
+<span class="">★★★★★</span>
+<span class="font-bold text-white text-[11px]">4.4 / 5</span>
+</div>
+</div>
+<h2 class="text-2xl font-extrabold text-white tracking-tight mb-1">Loved by the community</h2>
+<p class="text-xs text-gray-400 mb-6">22 verified player ratings on Playo</p>
+<!-- Testimonial Cards Carousel / Stack -->
+<div class="space-y-3.5">
+<!-- Review 1 -->
+<div class="bg-brand-cardDark border border-brand-borderDark rounded-xl p-4 relative">
+<span class="text-brand-mint text-2xl font-serif leading-none block mb-1">“</span>
+<p class="text-xs text-gray-200 leading-relaxed mb-3">
+            Great courts with good lighting and well-maintained wooden flooring. Really enjoyable experience!
+          </p>
+<div class="flex items-center gap-2.5 pt-2 border-t border-brand-borderDark/60">
+<div class="w-7 h-7 rounded-full bg-emerald-800 text-brand-mint font-bold text-xs flex items-center justify-center">
+              RP
+            </div>
+<div>
+<div class="text-xs font-bold text-white">Regular Player</div>
+<div class="text-[10px] text-gray-400">via Playo</div>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-brand-cardDark border border-brand-borderDark rounded-xl p-4 relative">
+<span class="text-brand-mint text-2xl font-serif leading-none block mb-1">“</span>
+<p class="text-xs text-gray-200 leading-relaxed mb-3">
+            Spacious gallery and clean facilities. Perfect place to play with friends.
+          </p>
+<div class="flex items-center gap-2.5 pt-2 border-t border-brand-borderDark/60">
+<div class="w-7 h-7 rounded-full bg-emerald-800 text-brand-mint font-bold text-xs flex items-center justify-center">
+              AS
+            </div>
+<div>
+<div class="text-xs font-bold text-white">Arjun S.</div>
+<div class="text-[10px] text-gray-400">via Playo</div>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-brand-cardDark border border-brand-borderDark rounded-xl p-4 relative">
+<span class="text-brand-mint text-2xl font-serif leading-none block mb-1">“</span>
+<p class="text-xs text-gray-200 leading-relaxed mb-3">
+            Easy booking and well-managed facility. One of the best in Kondhwa area.
+          </p>
+<div class="flex items-center gap-2.5 pt-2 border-t border-brand-borderDark/60">
+<div class="w-7 h-7 rounded-full bg-emerald-800 text-brand-mint font-bold text-xs flex items-center justify-center">
+              SK
+            </div>
+<div>
+<div class="text-xs font-bold text-white">Sneha K.</div>
+<div class="text-[10px] text-gray-400">via Playo</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CommunityReviewsSection -->
+<!-- BEGIN: FAQSection -->
+<section class="bg-white py-10 px-4 text-gray-900" id="faq">
+<div class="max-w-md mx-auto">
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="text-xs font-bold tracking-wider uppercase text-emerald-600 block mb-1">FAQ</span>
+<h2 class="text-2xl font-extrabold text-gray-950 tracking-tight">Frequently Asked Questions</h2>
+</div>
+</div>
+<!-- Accordion Container -->
+<div class="space-y-2.5" id="faqAccordion">
+<!-- Item 1 -->
+<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+<summary class="list-none p-3.5 flex items-center justify-between cursor-pointer text-xs font-bold text-gray-900 select-none">
+<span class="">How can I book a slot?</span>
+<span class="text-gray-500 group-open:rotate-45 transition-transform duration-200 text-lg leading-none font-medium">+</span>
+</summary>
+<div class="px-3.5 pb-3.5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-2">
+            You can book directly using the online slot booking tool above or via the Playo app by choosing your preferred date and time.
+          </div>
+</details>
+<!-- Item 2 -->
+<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+<summary class="list-none p-3.5 flex items-center justify-between cursor-pointer text-xs font-bold text-gray-900 select-none">
+<span class="">What are the opening hours?</span>
+<span class="text-gray-500 group-open:rotate-45 transition-transform duration-200 text-lg leading-none font-medium">+</span>
+</summary>
+<div class="px-3.5 pb-3.5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-2">
+            MJP Badminton Court is open every day from 6:00 AM in the morning to 12:00 AM midnight.
+          </div>
+</details>
+<!-- Item 3 -->
+<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+<summary class="list-none p-3.5 flex items-center justify-between cursor-pointer text-xs font-bold text-gray-900 select-none">
+<span class="">What facilities are available?</span>
+<span class="text-gray-500 group-open:rotate-45 transition-transform duration-200 text-lg leading-none font-medium">+</span>
+</summary>
+<div class="px-3.5 pb-3.5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-2">
+            We provide two wooden courts, spacious spectator viewing gallery, separate washrooms, and shower rooms.
+          </div>
+</details>
+<!-- Item 4 -->
+<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+<summary class="list-none p-3.5 flex items-center justify-between cursor-pointer text-xs font-bold text-gray-900 select-none">
+<span class="">Is there a dress code or footwear requirement?</span>
+<span class="text-gray-500 group-open:rotate-45 transition-transform duration-200 text-lg leading-none font-medium">+</span>
+</summary>
+<div class="px-3.5 pb-3.5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-2">
+            Yes, non-marking badminton shoes are mandatory to safeguard the high quality wooden flooring. Standard sports attire is required.
+          </div>
+</details>
+</div>
+<div class="mt-4 text-center">
+<a class="text-xs font-bold text-emerald-700 hover:text-emerald-800 inline-flex items-center gap-1" href="#faq">
+<span class="">View More Questions</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</section>
+<!-- END: FAQSection -->
+<!-- BEGIN: MobileFooter -->
+<footer class="bg-brand-deepFooter text-gray-400 py-10 px-4 border-t border-brand-borderDark/40">
+<div class="max-w-md mx-auto space-y-6">
+<!-- Footer Logo & Tagline -->
+<div class="flex flex-col items-start gap-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-brand-mint/30 flex items-center justify-center text-brand-mint">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<path d="M14.5 2.5a2.5 2.5 0 0 0-5 0c0 .48.14.93.38 1.31L4.35 9.34a1 1 0 0 0 .15 1.41l2.83 2.83a1 1 0 0 0 1.41-.15l5.53-5.53c.38.24.83.38 1.31.38a2.5 2.5 0 0 0 0-5zM8.5 15l-4 4 1.5 1.5 4-4L8.5 15zm4 4l-4 4 1.5 1.5 4-4-1.5-1.5zm6.5-6.5l-4-4-1.5 1.5 4 4 1.5-1.5z"></path>
+</svg>
+</div>
+<div>
+<span class="font-extrabold text-white text-base tracking-tight leading-none block">MJP BADMINTON COURT</span>
+<span class="text-[9px] text-gray-500 uppercase tracking-widest">Kondhwa Khurd, Pune</span>
+</div>
+</div>
+<p class="text-xs text-gray-400 mt-1">
+          Your local badminton spot. <br>
+<span class="text-brand-mint">Play. Improve. Enjoy.</span>
+</p>
+</div>
+<!-- Links Grid -->
+<div class="grid grid-cols-2 gap-6 text-xs border-y border-brand-borderDark/40 py-6">
+<div>
+<h4 class="font-bold text-white uppercase text-[10px] tracking-wider mb-2.5">Quick Links</h4>
+<ul class="space-y-1.5">
+<li class=""><a class="hover:text-brand-mint transition" href="#">Home</a></li>
+<li class=""><a class="hover:text-brand-mint transition" href="#about">About</a></li>
+<li class=""><a class="hover:text-brand-mint transition" href="#facilities">Facilities</a></li>
+<li class=""><a class="hover:text-brand-mint transition" href="#gallery">Gallery</a></li>
+<li class=""><a class="hover:text-brand-mint transition" href="#location">Location</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase text-[10px] tracking-wider mb-2.5">Facilities</h4>
+<ul class="space-y-1.5">
+<li class=""><span class="text-gray-300">Wooden Courts</span></li>
+<li class=""><span class="text-gray-300">Viewing Gallery</span></li>
+<li class=""><span class="text-gray-300">Showers</span></li>
+<li class=""><span class="text-gray-300">Washrooms</span></li>
+</ul>
+</div>
+</div>
+<!-- Contact Mini Box -->
+<div class="bg-[#071f17] border border-brand-borderDark rounded-xl p-3.5 space-y-2">
+<div class="text-xs font-bold text-white flex items-center gap-1.5">
+<svg class="w-4 h-4 text-brand-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Get In Touch
+        </div>
+<p class="text-[11px] text-gray-300 leading-snug">
+          Kondhwa Khurd, Pune 411048
+        </p>
+<a class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-mint hover:underline" href="#location">
+<span class="">Get Directions</span>
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+<!-- Bottom Bar with Copyright & Socials -->
+<div class="flex flex-col items-center gap-3 pt-2 text-[11px] text-gray-500 text-center">
+<div class="flex items-center gap-4 text-gray-400">
+<span class="hover:text-brand-mint">Play • Improve • Enjoy</span>
+<span class="flex items-center gap-3 ml-2">
+<!-- Instagram -->
+<a aria-label="Instagram" class="hover:text-brand-mint" href="#">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<!-- Twitter / X -->
+<a aria-label="Twitter" class="hover:text-brand-mint" href="#">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+</span>
+</div>
+<p class="">© 2025 MJP Badminton Court. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<!-- END: MobileFooter -->
+<!-- Interactivity Scripts -->
+<script data-purpose="mobile-nav-handler">
+    // Toggle Mobile Navigation dropdown menu
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navDropdown = document.getElementById('mobileNavDropdown');
+
+    if (menuBtn && navDropdown) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = navDropdown.classList.contains('hidden');
+        if (isHidden) {
+          navDropdown.classList.remove('hidden');
+          navDropdown.classList.add('flex');
+        } else {
+          navDropdown.classList.add('hidden');
+          navDropdown.classList.remove('flex');
+        }
+      });
+
+      // Close menu when clicking a link
+      navDropdown.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navDropdown.classList.add('hidden');
+          navDropdown.classList.remove('flex');
+        });
+      });
+    }
+  </script>
+<script data-purpose="clipboard-address-handler">
+    // Copy address to clipboard functionality
+    const copyBtn = document.getElementById('copyAddressBtn');
+    const copyBtnText = document.getElementById('copyBtnText');
+
+    if (copyBtn && copyBtnText) {
+      copyBtn.addEventListener('click', () => {
+        const address = "Mahatma Jyotiba Phule Badminton Hall, Late Dattaji Gavhane Sports Arena, near Brahma Avenue Society, Kondhwa Khurd, Pune 411048";
+        navigator.clipboard.writeText(address).then(() => {
+          const original = copyBtnText.textContent;
+          copyBtnText.textContent = "Copied!";
+          setTimeout(() => {
+            copyBtnText.textContent = original;
+          }, 2000);
+        }).catch(() => {
+          copyBtnText.textContent = "Copied!";
+          setTimeout(() => {
+            copyBtnText.textContent = "Copy Address";
+          }, 2000);
+        });
+      });
+    }
+  </script>
+
+
+</body></html>
