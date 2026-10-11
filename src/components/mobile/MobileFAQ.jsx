@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FAQS } from '../data/courtData';
+import { FAQS } from '../../data/courtData';
 
 export default function MobileFAQ() {
   const [openIds, setOpenIds] = useState([1]);

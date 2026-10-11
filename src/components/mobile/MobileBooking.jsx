@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { COURTS, TIME_SLOTS } from '../data/courtData';
+import { COURTS, TIME_SLOTS } from '../../data/courtData';
 
 export default function MobileBooking({
   selectedCourtId,

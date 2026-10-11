@@ -1,5 +1,5 @@
 import React from 'react';
-import { GALLERY_ITEMS } from '../data/courtData';
+import { GALLERY_ITEMS } from '../../data/courtData';
 
 export default function MobileGallery({ onOpenLightbox }) {
   return (

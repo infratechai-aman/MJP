@@ -1,5 +1,5 @@
 import React from 'react';
-import { VENUE_INFO } from '../data/courtData';
+import { VENUE_INFO } from '../../data/courtData';
 
 export default function MobileFooter({ onOpenMyBookings }) {
   return (
