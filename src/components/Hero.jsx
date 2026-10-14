@@ -121,7 +121,7 @@ export default function Hero({ onOpenVideo }) {
             style={{ transitionDelay: '0.75s' }}
           >
             <a
-              className="hero-cta-primary inline-flex items-center gap-2.5 bg-gradient-to-r from-[#4ade80] to-[#22c55e] hover:from-[#22c55e] hover:to-[#16a34a] text-emerald-950 px-5 sm:px-8 py-3 sm:py-4 rounded-xl text-xs sm:text-sm font-extrabold shadow-2xl shadow-emerald-500/30 transition-all transform hover:-translate-y-1 hover:shadow-emerald-500/40 cursor-pointer relative overflow-hidden"
+              className="hero-cta-primary inline-flex items-center gap-2.5 bg-gradient-to-r from-[#4ade80] to-[#22c55e] hover:from-[#22c55e] hover:to-[#16a34a] text-emerald-950 px-5 sm:px-8 py-3 sm:py-4 rounded-xl text-xs sm:text-sm font-extrabold shadow-2xl shadow-emerald-500/30 transition-all transform active:scale-95 hover:-translate-y-1 hover:shadow-emerald-500/40 cursor-pointer relative overflow-hidden"
               href="#booking"
             >
               <i className="ph-bold ph-calendar-check text-sm sm:text-base"></i>
@@ -130,7 +130,7 @@ export default function Hero({ onOpenVideo }) {
             </a>
 
             <a
-              className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-emerald-500/40 px-4 sm:px-6 py-3 sm:py-4 rounded-xl text-xs sm:text-sm font-semibold backdrop-blur-xl transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-emerald-500/40 px-4 sm:px-6 py-3 sm:py-4 rounded-xl text-xs sm:text-sm font-semibold backdrop-blur-xl transition-all active:scale-95 hover:-translate-y-0.5"
               href="#location"
             >
               <i className="ph-bold ph-map-pin"></i>
@@ -140,13 +140,45 @@ export default function Hero({ onOpenVideo }) {
             <button
               type="button"
               onClick={onOpenVideo}
-              className="inline-flex items-center gap-2.5 text-slate-200 hover:text-white px-3 sm:px-4 py-3 sm:py-4 text-xs sm:text-sm font-medium transition-all group cursor-pointer"
+              className="inline-flex items-center gap-2.5 text-slate-200 hover:text-white px-3 sm:px-4 py-3 sm:py-4 text-xs sm:text-sm font-medium transition-all group cursor-pointer active:scale-95"
             >
               <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 group-hover:bg-emerald-500/30 flex items-center justify-center text-emerald-400 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-emerald-500/20">
                 <i className="ph-fill ph-play text-xs sm:text-sm"></i>
               </span>
               <span>Watch Arena Tour</span>
             </button>
+          </div>
+
+          {/* Mobile Quick Action Strip (District / Playo Style 1-Tap Navigation) */}
+          <div
+            className={`flex sm:hidden items-center gap-2 overflow-x-auto pb-1 pt-2 no-scrollbar -mx-4 px-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            style={{ transitionDelay: '0.85s' }}
+          >
+            <a
+              href="#booking"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-semibold whitespace-nowrap active:scale-95 transition-transform"
+            >
+              <i className="ph-bold ph-lightning text-[#21D6A0]"></i>
+              <span>Book Today</span>
+            </a>
+            <a
+              href="tel:+918237887888"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-slate-200 text-xs font-medium whitespace-nowrap active:scale-95 transition-transform"
+            >
+              <i className="ph-bold ph-phone-call text-emerald-400"></i>
+              <span>Call Reception</span>
+            </a>
+            <a
+              href="#location"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-slate-200 text-xs font-medium whitespace-nowrap active:scale-95 transition-transform"
+            >
+              <i className="ph-bold ph-navigation-arrow text-emerald-400"></i>
+              <span>1-Tap Map</span>
+            </a>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/5 text-zinc-400 text-xs whitespace-nowrap">
+              <i className="ph-bold ph-car text-emerald-400"></i>
+              <span>Free Parking</span>
+            </span>
           </div>
         </div>
       </div>

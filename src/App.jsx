@@ -12,6 +12,7 @@ import LocationContact from './components/LocationContact';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import MobileBottomBar from './components/MobileBottomBar';
 
 // Modals & Notifications
 import BookingModal from './components/BookingModal';
@@ -167,7 +168,7 @@ export default function App() {
           onOpenMyBookings={() => setIsMyBookingsOpen(true)}
           bookingCount={userBookings.length}
         />
-        <main className="w-full flex-1">
+        <main className="w-full flex-1 pb-16 md:pb-0">
           <Hero
             onOpenVideo={() => setIsVideoModalOpen(true)}
           />
@@ -201,6 +202,12 @@ export default function App() {
         </main>
         <Footer
           onOpenMyBookings={() => setIsMyBookingsOpen(true)}
+        />
+
+        {/* Mobile Sticky Thumb-Zone Action Bar (District / Playo Style) */}
+        <MobileBottomBar
+          onOpenMyBookings={() => setIsMyBookingsOpen(true)}
+          bookingCount={userBookings.length}
         />
       </div>
 

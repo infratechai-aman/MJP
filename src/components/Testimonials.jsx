@@ -43,39 +43,50 @@ export default function Testimonials({ reviews, onOpenReviewModal }) {
           </div>
         </AnimatedSection>
 
-        {/* Testimonial Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Mobile Swipe Hint */}
+        <div className="flex sm:hidden items-center justify-between text-xs text-emerald-400/80 mb-3 px-1">
+          <span className="flex items-center gap-1.5 font-medium">
+            <i className="ph-bold ph-hand-swipe-left text-sm"></i>
+            Swipe to read community reviews
+          </span>
+          <span className="text-[10px] text-zinc-500 uppercase font-semibold">{reviews.length}+ Reviews</span>
+        </div>
+
+        {/* Testimonial Cards - Mobile Snap Carousel & Desktop Grid */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 sm:gap-6 no-scrollbar">
           {reviews.slice(0, 3).map((review, idx) => (
-            <AnimatedSection key={review.id} delay={idx * 150}>
-              <div className="bg-[#0a2f21]/60 border border-emerald-800/30 rounded-2xl p-7 shadow-xl flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-300 hover-lift backdrop-blur-sm relative overflow-hidden group">
-                {/* Subtle shimmer on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(52,211,153,0.03), transparent)' }}></div>
-                
-                <div className="space-y-3 relative">
-                  <div className="flex items-center justify-between">
-                    <span className="text-4xl text-emerald-400/30 font-serif leading-none">"</span>
-                    <div className="flex text-amber-400 text-xs gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <i key={i} className={`ph-fill ${i < Math.floor(review.rating) ? 'ph-star' : 'ph-star-half'}`}></i>
-                      ))}
+            <div key={review.id} className="snap-center min-w-[280px] max-w-[310px] shrink-0 sm:min-w-0 sm:max-w-none sm:shrink">
+              <AnimatedSection delay={idx * 120}>
+                <div className="bg-[#0a2f21]/60 border border-emerald-800/30 rounded-2xl p-6 sm:p-7 shadow-xl flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-300 hover-lift active:scale-[0.98] backdrop-blur-sm relative overflow-hidden group h-full">
+                  {/* Subtle shimmer on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(52,211,153,0.03), transparent)' }}></div>
+                  
+                  <div className="space-y-3 relative">
+                    <div className="flex items-center justify-between">
+                      <span className="text-4xl text-emerald-400/30 font-serif leading-none">"</span>
+                      <div className="flex text-amber-400 text-xs gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <i key={i} className={`ph-fill ${i < Math.floor(review.rating) ? 'ph-star' : 'ph-star-half'}`}></i>
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-200/80 leading-relaxed -mt-1">
+                      {review.comment}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-3 pt-5 border-t border-emerald-800/30 mt-5 relative">
+                    <div className="w-10 h-10 rounded-full bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center font-bold text-xs sm:text-sm text-emerald-300 shrink-0">
+                      {review.tag || review.name.slice(0, 2).toUpperCase()}
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-white">{review.name}</h4>
+                      <p className="text-[10px] sm:text-[11px] text-emerald-400/60">{review.source || 'Verified Player'}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-slate-200/80 leading-relaxed -mt-1">
-                    {review.comment}
-                  </p>
                 </div>
-
-                <div className="flex items-center gap-3 pt-6 border-t border-emerald-800/30 mt-6 relative">
-                  <div className="w-11 h-11 rounded-full bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center font-bold text-sm text-emerald-300 shrink-0">
-                    {review.tag || review.name.slice(0, 2).toUpperCase()}
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white">{review.name}</h4>
-                    <p className="text-[11px] text-emerald-400/60">{review.source || 'Verified Player'}</p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+            </div>
           ))}
         </div>
       </div>

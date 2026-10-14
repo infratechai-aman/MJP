@@ -54,12 +54,12 @@ export default function Header({ onOpenMyBookings, bookingCount = 0 }) {
         </nav>
 
         {/* Header Actions */}
-        <div className="flex items-center gap-3">
-          {/* My Bookings Button */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* My Bookings Button - Desktop */}
           <button
             onClick={onOpenMyBookings}
             type="button"
-            className="hidden sm:inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-emerald-200 border border-emerald-700/20 hover:border-emerald-500/30 px-4 py-2 rounded-full text-xs font-bold transition-all backdrop-blur-sm"
+            className="hidden sm:inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-emerald-200 border border-emerald-700/20 hover:border-emerald-500/30 px-4 py-2 rounded-full text-xs font-bold transition-all backdrop-blur-sm active:scale-95 cursor-pointer"
             title="Check your booked court slots"
           >
             <i className="ph-bold ph-ticket"></i>
@@ -71,23 +71,39 @@ export default function Header({ onOpenMyBookings, bookingCount = 0 }) {
             )}
           </button>
 
+          {/* My Bookings Quick Icon - Mobile (Shown if tickets booked) */}
+          {bookingCount > 0 && (
+            <button
+              onClick={onOpenMyBookings}
+              type="button"
+              className="sm:hidden relative w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 flex items-center justify-center active:scale-90 transition-transform cursor-pointer"
+              title="My Booked Passes"
+              aria-label="My Booked Passes"
+            >
+              <i className="ph-bold ph-ticket text-base"></i>
+              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#21D6A0] text-black text-[9px] font-black flex items-center justify-center">
+                {bookingCount}
+              </span>
+            </button>
+          )}
+
           {/* Book a Slot CTA */}
           <a
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4ade80] to-[#22c55e] hover:from-[#22c55e] hover:to-[#16a34a] text-emerald-950 px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#4ade80] to-[#22c55e] hover:from-[#22c55e] hover:to-[#16a34a] text-emerald-950 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-lg shadow-emerald-500/20 transition-all transform active:scale-95 hover:-translate-y-0.5"
             href="#booking"
           >
-            <span>Book a Slot</span>
-            <i className="ph-bold ph-arrow-right"></i>
+            <span>Book Slot</span>
+            <i className="ph-bold ph-arrow-right text-xs"></i>
           </a>
 
           {/* Mobile Menu Toggle */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl bg-white/5 text-emerald-300 hover:text-white border border-emerald-800/20"
+            className="md:hidden p-2 rounded-xl bg-white/5 text-emerald-300 hover:text-white border border-emerald-800/20 active:scale-90 transition-transform"
             aria-label="Toggle menu"
           >
-            <i className={`ph-bold ${mobileMenuOpen ? 'ph-x' : 'ph-list'} text-xl`}></i>
+            <i className={`ph-bold ${mobileMenuOpen ? 'ph-x' : 'ph-list'} text-lg`}></i>
           </button>
         </div>
       </div>

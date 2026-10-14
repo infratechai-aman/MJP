@@ -444,3 +444,13 @@ body {
 .custom-modal-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(33, 214, 160, 0.45);
 }
+
+/* Hide scrollbar utility for mobile-first horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

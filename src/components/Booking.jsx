@@ -23,6 +23,16 @@ export default function Booking({
     return d.toISOString().split('T')[0];
   };
 
+  // Generate 7 upcoming days for rapid 1-tap mobile selection (District / Playo Style)
+  const upcomingDays = Array.from({ length: 7 }).map((_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() + i);
+    const iso = d.toISOString().split('T')[0];
+    const dayName = i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : d.toLocaleDateString('en-US', { weekday: 'short' });
+    const dayNum = d.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
+    return { iso, dayName, dayNum };
+  });
+
   const currentCourt = COURTS.find((c) => c.id === selectedCourtId) || COURTS[0];
   const currentSlot = TIME_SLOTS.find((s) => s.id === selectedSlotId);
   const slotPrice = currentSlot?.isPeak ? currentCourt.peakHourlyRate : currentCourt.hourlyRate;
@@ -82,7 +92,7 @@ export default function Booking({
                         key={court.id}
                         type="button"
                         onClick={() => setSelectedCourtId(court.id)}
-                        className={`p-3 sm:p-4 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
+                        className={`p-3 sm:p-4 rounded-xl border text-left transition-all duration-200 cursor-pointer active:scale-95 ${
                           isSelected
                             ? 'bg-emerald-800/50 border-emerald-400 text-white shadow-md shadow-emerald-500/15'
                             : 'bg-emerald-950/50 border-emerald-800/40 text-slate-300 hover:border-emerald-600/50'
@@ -102,46 +112,49 @@ export default function Booking({
                 </div>
               </div>
 
-              {/* Date Selector with Quick Chips */}
+              {/* District / Playo Style 7-Day Horizontal Date Strip */}
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <label className="block text-[11px] sm:text-xs font-bold text-emerald-300 uppercase tracking-wider">
                     Select Date
                   </label>
-                  <div className="flex gap-1.5 text-xs">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedDate(getTodayISO())}
-                      className={`px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer ${
-                        selectedDate === getTodayISO()
-                          ? 'bg-emerald-400 text-emerald-950 shadow-sm'
-                          : 'bg-emerald-900/40 text-emerald-300 hover:bg-emerald-800/50'
-                      }`}
-                    >
-                      Today
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setSelectedDate(getTomorrowISO())}
-                      className={`px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer ${
-                        selectedDate === getTomorrowISO()
-                          ? 'bg-emerald-400 text-emerald-950 shadow-sm'
-                          : 'bg-emerald-900/40 text-emerald-300 hover:bg-emerald-800/50'
-                      }`}
-                    >
-                      Tomorrow
-                    </button>
-                  </div>
+                  <label className="text-[10px] text-zinc-400 flex items-center gap-1 cursor-pointer hover:text-emerald-400 transition-colors">
+                    <i className="ph-bold ph-calendar text-xs text-emerald-400"></i>
+                    <span>Other Date</span>
+                    <input
+                      type="date"
+                      min={getTodayISO()}
+                      value={selectedDate}
+                      onChange={(e) => setSelectedDate(e.target.value)}
+                      className="sr-only"
+                    />
+                  </label>
                 </div>
-                <div className="relative">
-                  <input
-                    aria-label="Booking date"
-                    className="w-full bg-emerald-950/60 border border-emerald-600/30 text-white rounded-xl px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/30 transition-all"
-                    type="date"
-                    min={getTodayISO()}
-                    value={selectedDate}
-                    onChange={(e) => setSelectedDate(e.target.value)}
-                  />
+
+                {/* 7-Day Horizontal Pill Strip */}
+                <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar -mx-1 px-1">
+                  {upcomingDays.map((d) => {
+                    const isSelected = selectedDate === d.iso;
+                    return (
+                      <button
+                        key={d.iso}
+                        type="button"
+                        onClick={() => setSelectedDate(d.iso)}
+                        className={`flex-shrink-0 flex flex-col items-center justify-center px-3.5 py-2 rounded-xl text-center transition-all cursor-pointer active:scale-95 border ${
+                          isSelected
+                            ? 'bg-[#21D6A0] text-[#051a11] border-[#21D6A0] shadow-md shadow-emerald-500/25 font-black scale-[1.02]'
+                            : 'bg-emerald-950/40 border-emerald-800/40 text-slate-300 hover:border-emerald-600/50 hover:text-white'
+                        }`}
+                      >
+                        <span className={`text-[10px] uppercase tracking-wider ${isSelected ? 'font-black text-[#051a11]' : 'font-semibold text-zinc-400'}`}>
+                          {d.dayName}
+                        </span>
+                        <span className={`text-xs ${isSelected ? 'font-black text-[#051a11]' : 'font-bold text-white'}`}>
+                          {d.dayNum}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -164,7 +177,7 @@ export default function Booking({
                         key={f.id}
                         type="button"
                         onClick={() => setTimeFilter(f.id)}
-                        className={`px-2 py-0.5 rounded-md text-[10px] font-bold transition-all cursor-pointer whitespace-nowrap ${
+                        className={`px-2 py-0.5 rounded-md text-[10px] font-bold transition-all cursor-pointer whitespace-nowrap active:scale-95 ${
                           timeFilter === f.id
                             ? 'bg-emerald-500 text-emerald-950'
                             : 'bg-emerald-950/60 text-slate-400 hover:text-white'
@@ -203,7 +216,7 @@ export default function Booking({
                           key={slot.id}
                           type="button"
                           onClick={() => handleSlotClick(slot)}
-                          className="py-2 px-1.5 bg-gradient-to-r from-emerald-400 to-emerald-500 text-emerald-950 font-black rounded-lg text-xs text-center shadow-lg shadow-emerald-500/20 transform scale-[1.03] transition-all flex flex-col items-center justify-center cursor-pointer border border-white/30"
+                          className="py-2 px-1.5 bg-gradient-to-r from-emerald-400 to-emerald-500 text-emerald-950 font-black rounded-lg text-xs text-center shadow-lg shadow-emerald-500/20 transform scale-[1.03] transition-all flex flex-col items-center justify-center cursor-pointer border border-white/30 active:scale-95"
                         >
                           <span className="text-[11px]">{slot.time}</span>
                           <span className="text-[8px] font-bold text-emerald-950/90">Selected</span>
@@ -216,7 +229,7 @@ export default function Booking({
                         key={slot.id}
                         type="button"
                         onClick={() => handleSlotClick(slot)}
-                        className="py-2 px-1.5 bg-white text-slate-800 hover:bg-emerald-50 hover:text-emerald-950 font-bold rounded-lg text-xs text-center border border-emerald-200/60 shadow-sm transition-all flex flex-col items-center justify-center group cursor-pointer hover:border-emerald-400"
+                        className="py-2 px-1.5 bg-white text-slate-800 hover:bg-emerald-50 hover:text-emerald-950 font-bold rounded-lg text-xs text-center border border-emerald-200/60 shadow-sm transition-all flex flex-col items-center justify-center group cursor-pointer hover:border-emerald-400 active:scale-95"
                       >
                         <span className="text-[11px] group-hover:scale-105 transition-transform">{slot.time}</span>
                         <span className="text-[8px] text-slate-500 font-semibold">
@@ -240,7 +253,7 @@ export default function Booking({
                       key={hours}
                       type="button"
                       onClick={() => setSelectedDuration(hours)}
-                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer active:scale-95 ${
                         selectedDuration === hours
                           ? 'bg-emerald-400 text-emerald-950 shadow-sm'
                           : 'bg-emerald-950/60 text-slate-300 border border-emerald-800/40 hover:bg-emerald-900/40'

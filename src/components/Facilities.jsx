@@ -72,34 +72,45 @@ export default function Facilities({ onOpenLightbox }) {
           </AnimatedSection>
         </div>
 
-        {/* 4 Facility Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile Swipe Hint */}
+        <div className="flex sm:hidden items-center justify-between text-xs text-emerald-400/80 mb-3 px-1">
+          <span className="flex items-center gap-1.5 font-medium">
+            <i className="ph-bold ph-hand-swipe-left text-sm"></i>
+            Swipe to explore amenities
+          </span>
+          <span className="text-[10px] text-zinc-500 uppercase font-semibold">4 Facilities</span>
+        </div>
+
+        {/* 4 Facility Cards - Mobile Snap Carousel & Desktop Grid */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 no-scrollbar">
           {facilityItems.map((item, idx) => (
-            <AnimatedSection key={item.id} delay={idx * 120}>
-              <div
-                className="bg-[#0e3d2b]/90 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-xl flex flex-col group hover:border-emerald-400 transition-all duration-300 cursor-pointer hover-lift backdrop-blur-md"
-                onClick={() => onOpenLightbox && onOpenLightbox(item.lightboxIndex)}
-                title="Click to view full photo"
-              >
-                <div className="h-48 overflow-hidden relative">
-                  <img
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    src={item.image}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a2f21] via-transparent to-transparent opacity-60"></div>
-                </div>
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg mb-3 group-hover:bg-emerald-500 group-hover:text-emerald-950 transition-all duration-300">
-                      <i className={`ph-bold ${item.icon}`}></i>
+            <div key={item.id} className="snap-center min-w-[270px] max-w-[290px] shrink-0 sm:min-w-0 sm:max-w-none sm:shrink">
+              <AnimatedSection delay={idx * 100}>
+                <div
+                  className="bg-[#0e3d2b]/90 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-xl flex flex-col group hover:border-emerald-400 transition-all duration-300 cursor-pointer hover-lift active:scale-[0.98] backdrop-blur-md h-full"
+                  onClick={() => onOpenLightbox && onOpenLightbox(item.lightboxIndex)}
+                  title="Click to view full photo"
+                >
+                  <div className="h-44 sm:h-48 overflow-hidden relative">
+                    <img
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      src={item.image}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a2f21] via-transparent to-transparent opacity-60"></div>
+                  </div>
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg mb-2.5 group-hover:bg-emerald-500 group-hover:text-emerald-950 transition-all duration-300">
+                        <i className={`ph-bold ${item.icon}`}></i>
+                      </div>
+                      <h3 className="text-base font-bold text-white">{item.name}</h3>
+                      <p className="text-xs text-slate-300/70 mt-1.5 leading-relaxed">{item.desc}</p>
                     </div>
-                    <h3 className="text-base font-bold text-white">{item.name}</h3>
-                    <p className="text-xs text-slate-300/70 mt-1.5 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+            </div>
           ))}
         </div>
       </div>
