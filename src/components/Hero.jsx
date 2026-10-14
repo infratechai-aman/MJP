@@ -16,16 +16,16 @@ export default function Hero({ onOpenVideo }) {
     >
       {/* Cinematic Dark Badminton Arena Atmosphere (Restored Deep Dark Theme) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Animated real court arena background with Ken Burns motion */}
+        {/* Animated real court arena shuttlecock background with slight blur as requested */}
         <div
-          className="absolute inset-0 bg-cover bg-center animate-hero-zoom opacity-40 scale-105"
+          className="absolute inset-0 bg-cover bg-center sm:bg-[center_35%] animate-hero-zoom opacity-50 scale-105 filter blur-[2px] sm:blur-[3px]"
           style={{
-            backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtH9zGUwla7JHxSSoUnU46Uvr1YkoUCIJh2DAiad4oyXgMKXdrAsIohrLNEhsMCFzbJ40JeldnqO2ImZSQF5JUuMGVHolNsyLaY1AavhYb7tgPFXpX0UXC_gW_TTfwwqWS2G3rrcHCsVTtvwxjYMgOaDUrQo5Lj2MuGIMa2egluIcZq4Fw6u1JLa-yKehOiwkKudLTW5xhc5pvzn2Cd7-3ubbJkRNxwZ3nL6vB_GPxrA1a4834MgIT')`
+            backgroundImage: `url('/hero-court-shuttle.png')`
           }}
         ></div>
 
         {/* Multi-layer Deep Dark Cinematic Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020d08] via-[#041a0f]/95 to-[#041a0f]/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020d08] via-[#041a0f]/90 to-[#041a0f]/60"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#020d08] via-transparent to-[#020d08]/80"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020d08]"></div>
 
@@ -39,13 +39,16 @@ export default function Hero({ onOpenVideo }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="max-w-3xl lg:max-w-4xl space-y-4 sm:space-y-7">
-          {/* Tag Badge */}
+          {/* Authentic Venue Location Badge (Replaced generic AI pill) */}
           <div
-            className={`inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full border border-emerald-500/30 text-emerald-300 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] backdrop-blur-xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-            style={{ background: 'rgba(6, 78, 47, 0.35)' }}
+            className={`inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-lg bg-[#0e1612]/80 border border-white/10 text-zinc-300 text-xs font-medium backdrop-blur-md shadow-lg transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>BADMINTON • KONDHWA KHURD, PUNE</span>
+            <span className="flex items-center gap-1.5 text-[#21D6A0] font-semibold text-xs tracking-wide">
+              <i className="ph-fill ph-map-pin text-sm text-[#21D6A0]"></i>
+              Kondhwa Khurd, Pune
+            </span>
+            <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
+            <span className="text-[11px] text-zinc-400 font-normal">2 BWF Wooden Courts</span>
           </div>
 
           {/* Main Title - Responsive: Compact on mobile, Grand & Sweeping on Desktop */}
