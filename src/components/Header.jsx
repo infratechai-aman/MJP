@@ -23,7 +23,7 @@ export default function Header({ onOpenMyBookings, bookingCount = 0 }) {
   return (
     <header className={`text-white sticky top-0 z-50 transition-all duration-500 ${
       scrolled
-        ? 'bg-[#061f15]/95 backdrop-blur-2xl border-b border-emerald-500/20 shadow-2xl shadow-black/30'
+        ? 'bg-[#020d08]/95 backdrop-blur-2xl border-b border-emerald-900/30 shadow-2xl shadow-black/30'
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">

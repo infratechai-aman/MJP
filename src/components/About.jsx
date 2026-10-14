@@ -3,7 +3,7 @@ import { AnimatedSection } from '../hooks/useScrollReveal';
 
 export default function About({ onOpenLightbox }) {
   return (
-    <section className="bg-[#08261b] py-14 sm:py-20 lg:py-24 text-white relative overflow-hidden" id="about">
+    <section className="bg-[#03170e] py-14 sm:py-20 lg:py-24 text-white relative overflow-hidden" id="about">
       {/* Subtle background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-400/3 rounded-full blur-[120px] pointer-events-none"></div>

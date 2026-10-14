@@ -24,7 +24,7 @@ export default function FAQ() {
   const displayedFaqs = showAll ? filteredFaqs : filteredFaqs.slice(0, 4);
 
   return (
-    <section className="bg-[#092b1e] py-14 sm:py-20 lg:py-24 text-white relative overflow-hidden" id="faq">
+    <section className="bg-[#03170e] py-14 sm:py-20 lg:py-24 text-white relative overflow-hidden" id="faq">
       <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

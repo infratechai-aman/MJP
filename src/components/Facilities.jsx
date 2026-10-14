@@ -38,7 +38,7 @@ export default function Facilities({ onOpenLightbox }) {
   ];
 
   return (
-    <section className="bg-[#0b3323] text-white py-14 sm:py-20 lg:py-24 relative overflow-hidden" id="facilities">
+    <section className="bg-[#051f14] text-white py-14 sm:py-20 lg:py-24 relative overflow-hidden" id="facilities">
       {/* Background decorations */}
       <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[180px] -translate-y-1/2 pointer-events-none"></div>
 

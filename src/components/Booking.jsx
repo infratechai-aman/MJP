@@ -47,7 +47,7 @@ export default function Booking({
   });
 
   return (
-    <section className="bg-[#092b1e] text-white py-12 sm:py-20 lg:py-24 relative overflow-hidden" id="booking">
+    <section className="bg-[#051f14] text-white py-12 sm:py-20 lg:py-24 relative overflow-hidden" id="booking">
       {/* Ambient glow orbs */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-emerald-400/8 rounded-full blur-[120px] pointer-events-none"></div>

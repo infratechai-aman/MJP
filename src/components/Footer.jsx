@@ -4,7 +4,7 @@ import { AnimatedSection } from '../hooks/useScrollReveal';
 
 export default function Footer({ onOpenMyBookings }) {
   return (
-    <footer className="bg-[#051a12] text-slate-300 pt-16 pb-12 border-t border-emerald-500/20 relative overflow-hidden">
+    <footer className="bg-[#020d08] text-slate-400 pt-16 pb-12 border-t border-emerald-900/30 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-0 left-1/2 w-[600px] h-[300px] bg-emerald-500/3 rounded-full blur-[150px] -translate-x-1/2 pointer-events-none"></div>
 
