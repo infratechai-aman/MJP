@@ -53,9 +53,10 @@ export default function BookingModal({
       // Fire celebration confetti!
       try {
         confetti({
-          particleCount: 80,
-          spread: 70,
-          origin: { y: 0.6 }
+          particleCount: 140,
+          spread: 90,
+          origin: { y: 0.6 },
+          colors: ['#4ade80', '#22c55e', '#10b981', '#34d399', '#ffffff', '#fbbf24']
         });
       } catch (err) {
         // ignore
@@ -77,59 +78,69 @@ export default function BookingModal({
         addons: selectedAddons.map((id) => EQUIPMENT_ADDONS.find((a) => a.id === id)),
         grandTotal,
         paymentMethod,
-        paymentStatus: paymentMethod === 'venue' ? 'Pay at Venue' : 'Paid (Simulated)',
+        paymentStatus: paymentMethod === 'venue' ? 'Pay at Venue Counter' : 'Confirmed (Instant)',
         bookedAt: new Date().toISOString()
       };
 
       setIsSubmitting(false);
       onConfirmBooking(completedBooking);
-    }, 700);
+    }, 600);
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in overflow-y-auto">
-      <div className="bg-[#082318] border border-emerald-700/80 rounded-2xl max-w-xl w-full p-6 sm:p-8 text-white shadow-2xl relative my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 booking-modal-overlay overflow-y-auto">
+      <div className="booking-modal-content rounded-3xl max-w-xl w-full p-6 sm:p-9 text-white relative my-8">
+        
+        {/* Ambient glow orbs behind modal */}
+        <div className="absolute -top-24 -left-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-emerald-400/10 rounded-full blur-[100px] pointer-events-none"></div>
         
         {/* Close Button */}
         <button
           onClick={onClose}
           type="button"
-          className="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-emerald-900/50 transition-colors"
+          className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-all duration-200 z-10 cursor-pointer"
           aria-label="Close modal"
         >
-          <i className="ph-bold ph-x text-lg"></i>
+          <i className="ph-bold ph-x text-xl"></i>
         </button>
 
         {/* Modal Header */}
-        <div className="mb-6">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-emerald-950/80 border border-emerald-700/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            Booking Confirmation
+        <div className="mb-6 relative">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 text-emerald-400 text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 bg-emerald-950/60 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>OFFICIAL COURT RESERVATION</span>
           </div>
-          <h3 className="text-2xl font-extrabold text-white">Reserve Your Slot</h3>
-          <p className="text-xs text-slate-300 mt-1">
-            Complete your player details to confirm court reservation.
+          <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">Reserve Your Slot</h3>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            Complete player details to generate your digital match pass.
           </p>
         </div>
 
-        {/* Selected Slot Summary Strip */}
-        <div className="bg-[#051c14] border border-emerald-800/80 rounded-xl p-4 mb-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+        {/* Selected Slot Summary Strip (Digital Ticket Header) */}
+        <div className="rounded-2xl p-4 sm:p-5 mb-6 border border-emerald-500/20 relative overflow-hidden bg-gradient-to-br from-emerald-950/40 via-[#041a0f]/80 to-[#020d08] shadow-inner">
+          <div className="absolute inset-0 animate-shimmer pointer-events-none opacity-40"></div>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-xs relative z-10">
             <div>
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Court</span>
-              <span className="font-bold text-white">{court.name.split(' ')[0]} {court.name.split(' ')[1]}</span>
+              <span className="text-[10px] uppercase font-bold text-emerald-400/70 block mb-1 tracking-wider">Court</span>
+              <span className="font-extrabold text-white text-sm block leading-tight">{court.name.split('(')[0].trim()}</span>
+              <span className="text-[10px] text-emerald-300/60 font-medium">BWF Timber</span>
             </div>
             <div>
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Date</span>
-              <span className="font-bold text-white">{date}</span>
+              <span className="text-[10px] uppercase font-bold text-emerald-400/70 block mb-1 tracking-wider">Date</span>
+              <span className="font-extrabold text-white text-sm block leading-tight">{date}</span>
+              <span className="text-[10px] text-slate-400 font-medium">Confirmed Day</span>
             </div>
             <div>
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Time Slot</span>
-              <span className="font-bold text-emerald-400">{slot.time}</span>
+              <span className="text-[10px] uppercase font-bold text-emerald-400/70 block mb-1 tracking-wider">Time Slot</span>
+              <span className="font-black text-emerald-400 text-sm block leading-tight">{slot.time}</span>
+              <span className="text-[10px] text-emerald-300/60 font-medium">{slot.isPeak ? 'Peak Hour' : 'Standard'}</span>
             </div>
             <div>
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Duration</span>
-              <span className="font-bold text-white">{duration} Hour{duration > 1 ? 's' : ''}</span>
+              <span className="text-[10px] uppercase font-bold text-emerald-400/70 block mb-1 tracking-wider">Duration</span>
+              <span className="font-extrabold text-white text-sm block leading-tight">{duration} Hour{duration > 1 ? 's' : ''}</span>
+              <span className="text-[10px] text-slate-400 font-medium">₹{totalPrice} Base</span>
             </div>
           </div>
         </div>
@@ -137,8 +148,8 @@ export default function BookingModal({
         {/* Booking Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
           {errorMessage && (
-            <div className="p-3 bg-red-950/60 border border-red-700 text-red-200 text-xs rounded-lg flex items-center gap-2">
-              <i className="ph-bold ph-warning-circle text-base shrink-0"></i>
+            <div className="p-3 bg-red-950/50 border border-red-700/60 text-red-200 text-xs rounded-xl flex items-center gap-2.5 animate-fade-in backdrop-blur-sm">
+              <i className="ph-bold ph-warning-circle text-base shrink-0 text-red-400"></i>
               <span>{errorMessage}</span>
             </div>
           )}
@@ -146,52 +157,65 @@ export default function BookingModal({
           {/* Player Info Inputs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-emerald-300 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">
                 Primary Player Name *
               </label>
-              <input
-                type="text"
-                required
-                placeholder="e.g. Rahul Sharma"
-                value={playerName}
-                onChange={(e) => setPlayerName(e.target.value)}
-                className="w-full bg-[#051c14] border border-emerald-700/60 text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
-              />
+              <div className="relative">
+                <i className="ph-bold ph-user text-emerald-400/60 text-base absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Rahul Sharma"
+                  value={playerName}
+                  onChange={(e) => setPlayerName(e.target.value)}
+                  className="input-premium w-full text-white rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none placeholder:text-slate-600 transition-all"
+                />
+              </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-emerald-300 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">
                 Mobile Number *
               </label>
-              <input
-                type="tel"
-                required
-                placeholder="10-digit mobile number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                className="w-full bg-[#051c14] border border-emerald-700/60 text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
-              />
+              <div className="relative">
+                <i className="ph-bold ph-phone text-emerald-400/60 text-base absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                <input
+                  type="tel"
+                  required
+                  placeholder="10-digit mobile number"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  className="input-premium w-full text-white rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none placeholder:text-slate-600 transition-all"
+                />
+              </div>
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-emerald-300 uppercase tracking-wider mb-1.5">
-              Email Address <span className="text-slate-400 text-[10px] lowercase">(for digital receipt pass)</span>
+            <label className="block text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">
+              Email Address <span className="text-slate-500 text-[10px] lowercase normal-case">(for digital match receipt)</span>
             </label>
-            <input
-              type="email"
-              placeholder="rahul@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-[#051c14] border border-emerald-700/60 text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
-            />
+            <div className="relative">
+              <i className="ph-bold ph-envelope-simple text-emerald-400/60 text-base absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+              <input
+                type="email"
+                placeholder="rahul@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="input-premium w-full text-white rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none placeholder:text-slate-600 transition-all"
+              />
+            </div>
           </div>
 
           {/* Equipment Add-ons */}
           <div>
-            <label className="block text-xs font-semibold text-emerald-300 uppercase tracking-wider mb-2">
-              Equipment & Gear Add-ons <span className="text-slate-400 text-[10px] lowercase">(optional)</span>
-            </label>
+            <div className="flex items-center justify-between mb-2.5">
+              <label className="block text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+                Equipment & Gear Add-ons
+              </label>
+              <span className="text-slate-500 text-[11px]">Optional</span>
+            </div>
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {EQUIPMENT_ADDONS.map((addon) => {
                 const isSelected = selectedAddons.includes(addon.id);
@@ -200,23 +224,25 @@ export default function BookingModal({
                     key={addon.id}
                     type="button"
                     onClick={() => toggleAddon(addon.id)}
-                    className={`p-2.5 rounded-lg border text-left flex items-center justify-between text-xs transition-all ${
+                    className={`addon-card p-3 rounded-xl border text-left flex items-center justify-between text-xs transition-all duration-300 cursor-pointer ${
                       isSelected
-                        ? 'bg-emerald-950/90 border-emerald-400 text-white'
-                        : 'bg-[#051c14] border-emerald-800/60 text-slate-300 hover:border-emerald-700'
+                        ? 'selected bg-emerald-900/35 border-emerald-400/60 text-white shadow-lg shadow-emerald-500/15'
+                        : 'bg-[#03150d]/80 border-emerald-800/30 text-slate-300 hover:border-emerald-600/40 hover:bg-emerald-950/30'
                     }`}
                   >
-                    <div className="flex items-center gap-2 overflow-hidden">
-                      <i className={`ph-bold ${addon.icon} text-emerald-400 text-sm shrink-0`}></i>
+                    <div className="flex items-center gap-2.5 overflow-hidden">
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all ${isSelected ? 'bg-emerald-400/20 text-emerald-400' : 'bg-emerald-950 text-emerald-500/60'}`}>
+                        <i className={`ph-bold ${addon.icon} text-base`}></i>
+                      </div>
                       <div className="truncate">
-                        <span className="font-semibold block truncate">{addon.name}</span>
-                        <span className="text-[10px] text-slate-400">+₹{addon.price} {addon.unit}</span>
+                        <span className="font-bold block truncate text-slate-200">{addon.name}</span>
+                        <span className="text-[10px] text-emerald-400/80 font-semibold">+₹{addon.price} {addon.unit}</span>
                       </div>
                     </div>
-                    <span className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 ml-2 ${
-                      isSelected ? 'bg-emerald-500 border-emerald-400 text-emerald-950' : 'border-slate-600'
+                    <span className={`w-5 h-5 rounded-lg border flex items-center justify-center shrink-0 ml-2 transition-all ${
+                      isSelected ? 'bg-emerald-500 border-emerald-400 text-emerald-950 shadow-md shadow-emerald-500/30' : 'border-slate-700 bg-slate-900/50'
                     }`}>
-                      {isSelected && <i className="ph-bold ph-check text-[10px]"></i>}
+                      {isSelected && <i className="ph-bold ph-check text-xs font-black"></i>}
                     </span>
                   </button>
                 );
@@ -226,10 +252,10 @@ export default function BookingModal({
 
           {/* Payment Method */}
           <div>
-            <label className="block text-xs font-semibold text-emerald-300 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2.5">
               Payment Mode
             </label>
-            <div className="grid grid-cols-3 gap-2 text-xs">
+            <div className="grid grid-cols-3 gap-2.5 text-xs">
               {[
                 { id: 'upi', label: 'UPI / GPay / PhonePe', icon: 'ph-qr-code' },
                 { id: 'card', label: 'Debit / Credit Card', icon: 'ph-credit-card' },
@@ -239,13 +265,13 @@ export default function BookingModal({
                   key={method.id}
                   type="button"
                   onClick={() => setPaymentMethod(method.id)}
-                  className={`p-2.5 rounded-lg border text-center transition-all ${
+                  className={`payment-card p-3 rounded-xl border text-center transition-all duration-300 cursor-pointer ${
                     paymentMethod === method.id
-                      ? 'bg-emerald-950 border-emerald-400 text-emerald-300 font-bold ring-1 ring-emerald-400'
-                      : 'bg-[#051c14] border-emerald-800/60 text-slate-400 hover:border-emerald-700'
+                      ? 'selected bg-emerald-900/40 border-emerald-400/60 text-emerald-300 font-bold shadow-lg shadow-emerald-500/15'
+                      : 'bg-[#03150d]/80 border-emerald-800/30 text-slate-400 hover:border-emerald-600/40'
                   }`}
                 >
-                  <i className={`ph-bold ${method.icon} text-base block mb-1 mx-auto`}></i>
+                  <i className={`ph-bold ${method.icon} text-lg block mb-1 mx-auto ${paymentMethod === method.id ? 'text-emerald-400' : 'text-slate-500'}`}></i>
                   <span className="text-[11px] leading-tight block">{method.label}</span>
                 </button>
               ))}
@@ -253,40 +279,45 @@ export default function BookingModal({
           </div>
 
           {/* Pricing Breakdown & Submit */}
-          <div className="pt-3 border-t border-emerald-900/60 space-y-3">
-            <div className="flex items-center justify-between text-xs text-slate-300">
+          <div className="pt-4 border-t border-emerald-800/30 space-y-2.5">
+            <div className="flex items-center justify-between text-xs sm:text-sm text-slate-300">
               <span>Court Rental ({duration} hr)</span>
-              <span>₹{totalPrice}</span>
+              <span className="font-semibold text-white">₹{totalPrice}</span>
             </div>
             {addonsTotal > 0 && (
-              <div className="flex items-center justify-between text-xs text-slate-300">
+              <div className="flex items-center justify-between text-xs sm:text-sm text-slate-300">
                 <span>Equipment & Add-ons</span>
-                <span>₹{addonsTotal}</span>
+                <span className="font-semibold text-white">₹{addonsTotal}</span>
               </div>
             )}
-            <div className="flex items-center justify-between text-xs text-emerald-400">
+            <div className="flex items-center justify-between text-xs sm:text-sm text-emerald-400 font-semibold">
               <span>Convenience Fee</span>
               <span className="font-bold">FREE (₹0)</span>
             </div>
-            <div className="flex items-center justify-between text-base font-extrabold text-white border-t border-emerald-900/60 pt-2">
-              <span>Total Payable</span>
-              <span className="text-xl text-[#22c55e]">₹{grandTotal}</span>
+            
+            <div className="flex items-center justify-between pt-3 border-t border-emerald-800/30">
+              <div>
+                <span className="text-base sm:text-lg font-black text-white block">Total Payable</span>
+                <span className="text-[10px] text-slate-400">All taxes included</span>
+              </div>
+              <span className="text-3xl font-black bg-gradient-to-r from-[#4ade80] to-[#22c55e] bg-clip-text text-transparent">₹{grandTotal}</span>
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-[#4ade80] hover:bg-[#22c55e] text-emerald-950 py-3.5 px-6 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-60"
+              className="btn-premium-cta w-full bg-gradient-to-r from-[#4ade80] to-[#22c55e] hover:from-[#22c55e] hover:to-[#16a34a] text-emerald-950 py-4 px-6 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2.5 shadow-2xl shadow-emerald-500/30 transition-all transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50 disabled:hover:translate-y-0 mt-3"
             >
               {isSubmitting ? (
                 <>
                   <i className="ph-bold ph-spinner animate-spin text-base"></i>
-                  <span>Generating Booking Pass...</span>
+                  <span>Generating Digital Match Pass...</span>
                 </>
               ) : (
                 <>
                   <i className="ph-bold ph-check-circle text-base"></i>
-                  <span>Confirm & Generate Digital Pass</span>
+                  <span>Confirm & Generate Digital Match Pass</span>
+                  <i className="ph-bold ph-arrow-right text-xs"></i>
                 </>
               )}
             </button>

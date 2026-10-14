@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // Desktop Components
 import Header from './components/Header';
 import Hero from './components/Hero';
-import QuickStats from './components/QuickStats';
+// QuickStats removed — slop UI element
 import About from './components/About';
 import Facilities from './components/Facilities';
 import Gallery from './components/Gallery';
@@ -12,19 +12,6 @@ import LocationContact from './components/LocationContact';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
-
-// Mobile / Android Components
-import MobileHeader from './components/mobile/MobileHeader';
-import MobileHero from './components/mobile/MobileHero';
-import MobileStats from './components/mobile/MobileStats';
-import MobileAbout from './components/mobile/MobileAbout';
-import MobileFacilities from './components/mobile/MobileFacilities';
-import MobileGallery from './components/mobile/MobileGallery';
-import MobileBooking from './components/mobile/MobileBooking';
-import MobileLocation from './components/mobile/MobileLocation';
-import MobileReviews from './components/mobile/MobileReviews';
-import MobileFAQ from './components/mobile/MobileFAQ';
-import MobileFooter from './components/mobile/MobileFooter';
 
 // Modals & Notifications
 import BookingModal from './components/BookingModal';
@@ -39,30 +26,6 @@ import { INITIAL_TESTIMONIALS } from './data/courtData';
 
 export default function App() {
   const getTodayISO = () => new Date().toISOString().split('T')[0];
-
-  // View state: automatically adapts to mobile/tablet/desktop or URL param / toggle
-  const [isMobileView, setIsMobileView] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('view') === 'mobile' || urlParams.get('view') === 'android') return true;
-      if (urlParams.get('view') === 'desktop') return false;
-      return window.innerWidth < 768;
-    }
-    return false;
-  });
-
-  // Track window resize unless manually toggled
-  const [userToggled, setUserToggled] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (!userToggled) {
-        setIsMobileView(window.innerWidth < 768);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [userToggled]);
 
   // Core Booking State
   const [selectedCourtId, setSelectedCourtId] = useState('court-1');
@@ -196,89 +159,18 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen ${isMobileView ? 'bg-[#051812]' : 'bg-[#f8fafc]'} text-slate-800 flex flex-col font-sans selection:bg-emerald-500 selection:text-white relative`}>
+    <div className="min-h-screen bg-[#020d08] text-white flex flex-col font-sans selection:bg-emerald-500 selection:text-white relative">
       
-      {/* Floating Device View Switcher for Client / Tester */}
-      <aside aria-label="View mode switcher" className="fixed bottom-4 left-4 z-40 bg-[#061a12]/90 backdrop-blur-md border border-emerald-500/40 text-white rounded-full px-3 py-1.5 shadow-2xl flex items-center gap-2 text-xs">
-        <span className="text-[11px] text-emerald-400 font-bold hidden sm:inline">View Mode:</span>
-        <button
-          type="button"
-          onClick={toggleViewMode}
-          className="flex items-center gap-1.5 font-bold hover:text-emerald-300 transition-colors cursor-pointer"
-          title="Click to toggle between Android Mobile and Desktop layout"
-        >
-          {isMobileView ? (
-            <>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>📱 Android Mobile</span>
-              <span className="text-slate-400 font-normal text-[10px] ml-1">(Switch to 💻 Desktop)</span>
-            </>
-          ) : (
-            <>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>💻 Desktop Web</span>
-              <span className="text-slate-400 font-normal text-[10px] ml-1">(Switch to 📱 Android)</span>
-            </>
-          )}
-        </button>
-      </aside>
-
-      {/* RENDER CONDITIONAL VIEW BASED ON VIEWPORT / TOGGLE */}
-      {isMobileView ? (
-        /* ================= ANDROID MOBILE LAYOUT (from ANDROID/screen.png) ================= */
-        <div className="w-full flex flex-col">
-          <MobileHeader
-            onOpenMyBookings={() => setIsMyBookingsOpen(true)}
-            bookingCount={userBookings.length}
-          />
-          <main className="w-full flex-1">
-            <MobileHero
-              onOpenVideo={() => setIsVideoModalOpen(true)}
-            />
-            <MobileStats />
-            <MobileAbout
-              onOpenLightbox={handleOpenLightbox}
-            />
-            <MobileFacilities
-              onOpenLightbox={handleOpenLightbox}
-            />
-            <MobileGallery
-              onOpenLightbox={handleOpenLightbox}
-            />
-            <MobileBooking
-              selectedCourtId={selectedCourtId}
-              setSelectedCourtId={setSelectedCourtId}
-              selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
-              selectedSlotId={selectedSlotId}
-              setSelectedSlotId={setSelectedSlotId}
-              bookedSlots={bookedSlots}
-              onProceedToCheckout={handleProceedToCheckout}
-            />
-            <MobileLocation
-              onShowToast={showToast}
-            />
-            <MobileReviews
-              reviews={reviews}
-              onOpenReviewModal={() => setIsReviewModalOpen(true)}
-            />
-            <MobileFAQ />
-          </main>
-          <MobileFooter
-            onOpenMyBookings={() => setIsMyBookingsOpen(true)}
-          />
-        </div>
-      ) : (
-        /* ================= DESKTOP / TABLET LAYOUT (from screen.png) ================= */
-        <div className="w-full flex flex-col">
-          <Header
-            onOpenMyBookings={() => setIsMyBookingsOpen(true)}
-            bookingCount={userBookings.length}
-          />
+      {/* UNIFIED ULTRA-RESPONSIVE SITE LAYOUT */}
+      <div className="w-full flex flex-col">
+        <Header
+          onOpenMyBookings={() => setIsMyBookingsOpen(true)}
+          bookingCount={userBookings.length}
+        />
+        <main className="w-full flex-1">
           <Hero
             onOpenVideo={() => setIsVideoModalOpen(true)}
           />
-          <QuickStats />
           <About
             onOpenLightbox={handleOpenLightbox}
           />
@@ -306,11 +198,11 @@ export default function App() {
             onOpenReviewModal={() => setIsReviewModalOpen(true)}
           />
           <FAQ />
-          <Footer
-            onOpenMyBookings={() => setIsMyBookingsOpen(true)}
-          />
-        </div>
-      )}
+        </main>
+        <Footer
+          onOpenMyBookings={() => setIsMyBookingsOpen(true)}
+        />
+      </div>
 
       {/* Shared Modals */}
       <BookingModal
