@@ -3,7 +3,7 @@ import { AnimatedSection } from '../hooks/useScrollReveal';
 
 export default function Testimonials({ reviews, onOpenReviewModal }) {
   return (
-    <section className="bg-[#041a0f] text-white py-20 lg:py-28 relative overflow-hidden">
+    <section className="bg-[#08261b] text-white py-14 sm:py-20 lg:py-24 relative overflow-hidden">
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

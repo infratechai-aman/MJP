@@ -38,13 +38,13 @@ export default function Facilities({ onOpenLightbox }) {
   ];
 
   return (
-    <section className="bg-[#072218] text-white py-20 lg:py-28 relative overflow-hidden" id="facilities">
+    <section className="bg-[#0b3323] text-white py-14 sm:py-20 lg:py-24 relative overflow-hidden" id="facilities">
       {/* Background decorations */}
-      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[180px] -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[180px] -translate-y-1/2 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
           <AnimatedSection>
             <div>
               <span className="text-xs font-bold tracking-[0.25em] uppercase text-emerald-400">OUR FACILITIES</span>
@@ -52,7 +52,7 @@ export default function Facilities({ onOpenLightbox }) {
                 Everything you need <br />
                 for a <span className="bg-gradient-to-r from-[#4ade80] to-[#22c55e] bg-clip-text text-transparent">great game.</span>
               </h2>
-              <p className="text-slate-300/70 text-sm max-w-lg mt-4 leading-relaxed">
+              <p className="text-emerald-100/80 text-sm max-w-lg mt-3 leading-relaxed">
                 Well-maintained courts, modern amenities and a comfortable environment to make your playing experience better.
               </p>
             </div>
@@ -60,13 +60,13 @@ export default function Facilities({ onOpenLightbox }) {
 
           {/* Non-Marking Notice Badge */}
           <AnimatedSection direction="right" delay={200}>
-            <div className="bg-emerald-950/50 border border-emerald-600/30 rounded-2xl p-4 flex items-center gap-3.5 shadow-xl max-w-xs shrink-0 hover-glow backdrop-blur-sm">
-              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-300 flex items-center justify-center text-2xl shrink-0">
+            <div className="bg-emerald-950/70 border border-emerald-500/40 rounded-2xl p-4 flex items-center gap-3.5 shadow-xl max-w-xs shrink-0 hover-glow backdrop-blur-md">
+              <div className="w-11 h-11 rounded-xl bg-emerald-400/20 text-emerald-300 flex items-center justify-center text-2xl shrink-0">
                 <i className="ph-bold ph-sneaker"></i>
               </div>
               <div>
                 <h4 className="text-xs font-bold text-white uppercase tracking-wider">Shoe Policy</h4>
-                <p className="text-xs text-emerald-300/80 font-semibold mt-0.5">Non-marking shoes are compulsory.</p>
+                <p className="text-xs text-emerald-300/90 font-semibold mt-0.5">Non-marking shoes are compulsory.</p>
               </div>
             </div>
           </AnimatedSection>
@@ -77,7 +77,7 @@ export default function Facilities({ onOpenLightbox }) {
           {facilityItems.map((item, idx) => (
             <AnimatedSection key={item.id} delay={idx * 120}>
               <div
-                className="bg-[#0a2f21]/80 rounded-2xl overflow-hidden border border-emerald-800/40 shadow-xl flex flex-col group hover:border-emerald-500/50 transition-all duration-500 cursor-pointer hover-lift backdrop-blur-sm"
+                className="bg-[#0e3d2b]/90 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-xl flex flex-col group hover:border-emerald-400 transition-all duration-300 cursor-pointer hover-lift backdrop-blur-md"
                 onClick={() => onOpenLightbox && onOpenLightbox(item.lightboxIndex)}
                 title="Click to view full photo"
               >

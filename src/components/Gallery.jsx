@@ -4,7 +4,7 @@ import { AnimatedSection } from '../hooks/useScrollReveal';
 
 export default function Gallery({ onOpenLightbox }) {
   return (
-    <section className="bg-[#041a0f] py-20 lg:py-28 text-white relative overflow-hidden" id="gallery">
+    <section className="bg-[#08261b] py-14 sm:py-20 lg:py-24 text-white relative overflow-hidden" id="gallery">
       <div className="absolute top-0 left-1/2 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[150px] -translate-x-1/2 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -13,7 +13,7 @@ export default function LocationContact({ onShowToast }) {
   };
 
   return (
-    <section className="bg-[#072218] py-20 lg:py-28 text-white relative overflow-hidden" id="location">
+    <section className="bg-[#0b3323] py-14 sm:py-20 lg:py-24 text-white relative overflow-hidden" id="location">
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

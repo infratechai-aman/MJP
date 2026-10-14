@@ -159,7 +159,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#020d08] text-white flex flex-col font-sans selection:bg-emerald-500 selection:text-white relative">
+    <div className="min-h-screen bg-[#061f15] text-white flex flex-col font-sans selection:bg-emerald-500 selection:text-white relative">
       
       {/* UNIFIED ULTRA-RESPONSIVE SITE LAYOUT */}
       <div className="w-full flex flex-col">
